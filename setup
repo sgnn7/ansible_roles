@@ -1,0 +1,11 @@
+#!/bin/bash -ex
+
+playbook_name="$1"
+shift
+
+if [ "$playbook_name" == "" ]; then
+  echo "ERROR! Playbook name required!"
+  exit 1
+fi
+
+ansible-playbook -kK "${playbook_name}.yml" "$@"
